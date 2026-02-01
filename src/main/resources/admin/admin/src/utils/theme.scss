@@ -1,0 +1,17 @@
+:root {
+    /* 清新活力配色方案 - 现代年轻化风格 */
+    /* 主色调 - 紫蓝渐变起始色 */
+    --publicMainColor: #667eea;
+    /* 副色调 - 活力青色 */
+    --publicSubColor: #00d4aa;
+    /* 强调色 - 粉红色 */
+    --accentColor: #ff6b9d;
+    /* 渐变背景 */
+    --gradientPrimary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradientSecondary: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
+    /* 成功、警告、危险、信息色 */
+    --successColor: #52c41a;
+    --warningColor: #faad14;
+    --dangerColor: #ff4d4f;
+    --infoColor: #1890ff;
+}

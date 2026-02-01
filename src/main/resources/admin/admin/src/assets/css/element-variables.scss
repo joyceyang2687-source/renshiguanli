@@ -1,0 +1,17 @@
+/* 清新活力主题色配置 - 年轻化现代风格 */
+$--color-primary: #667eea !default;
+$--color-success: #52c41a !default;
+$--color-warning: #faad14 !default;
+$--color-danger: #ff4d4f !default;
+$--color-info: #1890ff !default;
+
+/* 扩展配色 */
+$--color-primary-light-1: mix(#fff, $--color-primary, 10%) !default;
+$--color-primary-light-2: mix(#fff, $--color-primary, 20%) !default;
+$--color-primary-light-3: mix(#fff, $--color-primary, 30%) !default;
+$--color-primary-light-4: mix(#fff, $--color-primary, 40%) !default;
+$--color-primary-light-5: mix(#fff, $--color-primary, 50%) !default;
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import "~element-ui/packages/theme-chalk/src/index";

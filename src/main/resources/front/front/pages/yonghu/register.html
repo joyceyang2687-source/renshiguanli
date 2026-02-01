@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/theme.css"/>
+    <style type="text/css">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { width: 100%; height: 100%; overflow: hidden; }
+        .register {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #1a1a2e;
+        }
+        .video-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        .register-card {
+            position: relative;
+            z-index: 10;
+            width: 460px;
+            max-height: 85vh;
+            background: rgba(135, 206, 250, 0.25);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px 35px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            overflow-y: auto;
+        }
+        .register-card::-webkit-scrollbar { width: 5px; }
+        .register-card::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 3px; }
+        .register-card::-webkit-scrollbar-thumb { background: rgba(74,144,226,0.5); border-radius: 3px; }
+        .register-header { text-align: center; margin-bottom: 20px; }
+        .logo-icon {
+            width: 50px; height: 50px;
+            margin: 0 auto 12px;
+            background: linear-gradient(135deg, #52C41A, #73d13d);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(82, 196, 26, 0.4);
+        }
+        .logo-icon svg { width: 28px; height: 28px; fill: #fff; }
+        .system-title { font-size: 20px; font-weight: 700; color: #fff; margin: 0 0 4px 0; }
+        .system-subtitle { font-size: 11px; color: rgba(255,255,255,0.6); }
+        .form-item { margin-bottom: 12px; }
+        .register-card .layui-input {
+            height: 42px;
+            padding: 0 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            font-size: 14px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08) !important;
+        }
+        .register-card .layui-input::placeholder { color: rgba(255,255,255,0.4); }
+        .register-card .layui-input:focus {
+            border-color: #52C41A;
+            background: rgba(255, 255, 255, 0.12) !important;
+        }
+        .layui-form-select .layui-input { color: #fff !important; background: rgba(255,255,255,0.08) !important; }
+        .register-btn {
+            width: 100%;
+            height: 44px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            background: linear-gradient(135deg, #52C41A, #73d13d) !important;
+            border: none !important;
+            border-radius: 10px;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(82, 196, 26, 0.4);
+            margin-top: 10px;
+        }
+        .register-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(82,196,26,0.5); }
+        .register-footer { text-align: center; margin-top: 16px; }
+        .register-footer a { color: rgba(255,255,255,0.7); font-size: 14px; text-decoration: none; }
+        .register-footer a:hover { color: #fff; }
+        @media (max-width: 500px) { .register-card { width: 95%; padding: 25px 20px; } }
+    </style>
+</head>
+<body>
+<div class="register" id="app">
+    <video class="video-bg" autoplay muted loop playsinline>
+        <source src="/renshiguanli/upload/kMwZibPW.mp4" type="video/mp4">
+    </video>
+    
+    <div class="register-card">
+        <div class="register-header">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+            <h1 class="system-title">用户注册</h1>
+            <p class="system-subtitle">Create Your Account</p>
+        </div>
+        
+        <form class="layui-form" lay-filter="myForm">
+            <div class="form-item">
+                <input lay-verify="required" type="text" id="username" name="username" placeholder="请输入账户" autocomplete="off" class="layui-input">
+            </div>
+            <div class="form-item">
+                <input lay-verify="password1|required" type="password" id="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+            <div class="form-item">
+                <input lay-verify="password2|required" type="password" id="password2" name="password2" placeholder="请重复输入密码" autocomplete="off" class="layui-input">
+            </div>
+            <div class="form-item">
+                <input lay-verify="required" type="text" id="yonghuName" name="yonghuName" placeholder="请输入用户姓名" autocomplete="off" class="layui-input">
+            </div>
+            <div class="form-item">
+                <input lay-verify="phone|required" type="text" id="yonghuPhone" name="yonghuPhone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+            </div>
+            <div class="form-item">
+                <input lay-verify="identity|required" type="text" id="yonghuIdNumber" name="yonghuIdNumber" placeholder="请输入身份证号" autocomplete="off" class="layui-input">
+            </div>
+            <div class="form-item">
+                <select name="sexTypes" id="sexTypes" lay-filter="sexTypes">
+                    <option v-for="(item,index) in sexTypesList" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <input lay-verify="email|required" type="text" id="yonghuEmail" name="yonghuEmail" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+            </div>
+            <button class="layui-btn register-btn" lay-submit lay-filter="register">注 册</button>
+        </form>
+        
+        <div class="register-footer">
+            <a href="../login/login.html">已有账号？立即登录</a>
+        </div>
+    </div>
+</div>
+
+<script src="../../layui/layui.js"></script>
+<script src="../../js/vue.js"></script>
+<!-- 引入element组件库 -->
+<script src="../../xznstatic/js/element.min.js"></script>
+<!-- 引入element样式 -->
+<link rel="stylesheet" href="../../xznstatic/css/element.min.css">
+<!-- 组件配置信息 -->
+<script src="../../js/config.js"></script>
+<!-- 扩展插件配置信息 -->
+<script src="../../modules/config.js"></script>
+<!-- 工具方法 -->
+<script src="../../js/utils.js"></script>
+<!-- 校验格式工具类 -->
+<script src="../../js/validate.js"></script>
+
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            sexTypesList: [],
+            jinyongTypesList: [],
+        },
+        updated: function () {
+            layui.form.render(null, 'myForm');
+        },
+        methods: {
+            jump(url) {
+                jump(url);
+            },
+        }
+    });
+
+    layui.use(['layer', 'element', 'carousel', 'form', 'http', 'jquery'], function () {
+        var layer = layui.layer;
+        var element = layui.element;
+        var carousel = layui.carousel;
+        var form = layui.form;
+        var http = layui.http;
+        var jquery = layui.jquery;
+
+        var tablename = http.getParam('tablename');
+        //字典表数据容器
+        // 性别的查询和初始化
+        sexTypesSelect();
+        // 账户状态的查询和初始化
+        jinyongTypesSelect();
+        // 表单效验规则
+        form.verify({
+            // 正整数效验规则
+            integer: [
+                /^[1-9][0-9]*$/
+                , '必须是正整数'
+            ]
+            // 小数效验规则
+            , double: [
+                /^[1-9][0-9]{0,5}(\.[0-9]{1,2})?$/
+                , '最大整数位为6为,小数最大两位'
+            ]
+            , password1: function (value, item) { //value：表单的值、item：表单的DOM对象
+                var password2 = jquery("#password2").val();
+                if (password2 != null && password2 != "" && password2 != "null") {
+                    if (value != password2) {
+                        return '密码的两次密码不一致';
+                    }
+                }
+            }
+            , password2: function (value, item) { //value：表单的值、item：表单的DOM对象
+                var password1 = jquery("#password1").val();
+                if (password1 != null && password1 != "" && password1 != "null") {
+                    if (value != password1) {
+                        return '密码的两次密码不一致';
+                    }
+                }
+            }
+        });
+
+        // 注册
+        form.on('submit(register)', function (data) {
+            data = data.field;
+            http.requestJson(tablename + '/register', 'post', data, function (res) {
+                if(res.code==0){
+                    layer.msg('注册成功', {
+                        time: 2000,
+                        icon: 6
+                    }, function () {
+                        // 路径访问设置
+                        window.location.href = '../login/login.html';
+                    });
+                }else{
+                    layer.msg(res.msg, {
+                        time: 4000,
+                        icon: 5
+                    });
+                }
+            });
+            return false
+        });
+
+
+        // 性别的查询
+        function sexTypesSelect() {
+            //填充下拉框选项
+            http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=sex_types", "GET", {}, (res) => {
+                if (res.code == 0) {
+                    vue.sexTypesList = res.data.list;
+                }
+            });
+        }
+
+        // 账户状态的查询
+        function jinyongTypesSelect() {
+            //填充下拉框选项
+            http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=jinyong_types", "GET", {}, (res) => {
+                if (res.code == 0) {
+                    vue.jinyongTypesList = res.data.list;
+                }
+            });
+        }
+
+
+    });
+</script>
+</body>
+</html>
