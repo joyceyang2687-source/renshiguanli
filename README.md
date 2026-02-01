@@ -21,4 +21,4 @@
 4.  启动 SpringBoot 后端，访问 `localhost:8080`。
 
 ---
-*Created by [杨敬辉]*
+*Created by [Yang Jinghui]*
